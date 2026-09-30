@@ -1,5 +1,6 @@
 import legoeducation as le
 import time
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -20,7 +21,7 @@ colorsensor.connect(card_color=card_color, card_serial=card_serial)
 # Check connection
 if not (singlemotor.connected and doublemotor.connected and colorsensor.connected):
 	print('Error connecting to hardware.')
-	exit(1) # error connecting
+	sys.exit(1) # error connecting
 
 # Move single motor to find the z of surface at one point
 def find_surface(degree_step, sensor_threshold):
@@ -117,4 +118,4 @@ plt.show()
 singlemotor.disconnect()
 doublemotor.disconnect()
 colorsensor.disconnect()
-exit(0)  # successful execution
+sys.exit(0)  # successful execution
